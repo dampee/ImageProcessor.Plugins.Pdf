@@ -11,7 +11,7 @@ namespace ImageProcessor.Plugins.Pdf
     {
         public override byte[][] FileHeaders => new[]
         {
-            Encoding.UTF8.GetBytes("%PDF")
+            Encoding.UTF8.GetBytes("%PDF") // Must be 4 bytes or less in the current version of ImageProcessor
         };
 
         public new string DefaultExtension => "pdf";
