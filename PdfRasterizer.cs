@@ -2,6 +2,8 @@
 using System.IO;
 using Ghostscript.NET;
 using Ghostscript.NET.Rasterizer;
+using System;
+using System.Reflection;
 
 namespace ImageProcessor.Plugins.Pdf
 {
@@ -17,8 +19,9 @@ namespace ImageProcessor.Plugins.Pdf
             _desiredXDpi = xDpi;
             _desiredYDpi = yDpi;
 
-            _lastInstalledVersion = GhostscriptVersionInfo.GetLastInstalledVersion(
-                GhostscriptLicense.GPL | GhostscriptLicense.AFPL, GhostscriptLicense.GPL);
+            var dllPath = Path.Combine(GetBinPath(), Environment.Is64BitProcess ? "gsdll64.dll" : "gsdll32.dll");
+
+            _lastInstalledVersion = new GhostscriptVersionInfo(new System.Version(0, 0, 0), dllPath, string.Empty, GhostscriptLicense.GPL | GhostscriptLicense.AFPL);
 
             _rasterizer = new GhostscriptRasterizer();
         }
@@ -41,6 +44,17 @@ namespace ImageProcessor.Plugins.Pdf
 
             _rasterizer.Close();
             return img;
+        }
+
+        private string GetBinPath()
+        {
+            string codeBase = Assembly.GetExecutingAssembly().CodeBase;
+
+            UriBuilder uri = new UriBuilder(codeBase);
+
+            string path = Uri.UnescapeDataString(uri.Path);
+
+            return Path.GetDirectoryName(path);
         }
     }
 }
