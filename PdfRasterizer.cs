@@ -21,7 +21,16 @@ namespace ImageProcessor.Plugins.Pdf
 
             var dllPath = Path.Combine(GetBinPath(), Environment.Is64BitProcess ? "gsdll64.dll" : "gsdll32.dll");
 
-            _lastInstalledVersion = new GhostscriptVersionInfo(new System.Version(0, 0, 0), dllPath, string.Empty, GhostscriptLicense.GPL | GhostscriptLicense.AFPL);
+            if (File.Exists(dllPath))
+            {
+                // use DLL in bin folder
+                _lastInstalledVersion = new GhostscriptVersionInfo(new System.Version(0, 0, 0), dllPath, string.Empty, GhostscriptLicense.GPL | GhostscriptLicense.AFPL);
+            }
+            else
+            {
+                // try to use installed DLL
+                _lastInstalledVersion = GhostscriptVersionInfo.GetLastInstalledVersion(GhostscriptLicense.GPL | GhostscriptLicense.AFPL, GhostscriptLicense.GPL);
+            }
 
             _rasterizer = new GhostscriptRasterizer();
         }
