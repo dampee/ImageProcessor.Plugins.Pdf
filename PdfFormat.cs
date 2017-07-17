@@ -12,6 +12,20 @@ namespace ImageProcessor.Plugins.Pdf
     /// </summary>
     public class PdfFormat : FormatBase
     {
+        private readonly int _desiredXDpi;
+        private readonly int _desiredYDpi;
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="xDpi">Desired X DPI</param>
+        /// <param name="yDpi">DEsired Y DPI</param>
+        public PdfFormat(int xDpi = 96, int yDpi = 96)
+        {
+            _desiredXDpi = xDpi;
+            _desiredYDpi = yDpi;
+        }
+
         /// <summary>
         /// Every PDF file starts with %PDF
         /// </summary>
@@ -31,7 +45,7 @@ namespace ImageProcessor.Plugins.Pdf
         /// <summary>
         /// All the extensions which are supported
         /// </summary>
-        public override string[] FileExtensions => new[] {"pdf"};
+        public override string[] FileExtensions => new[] { "pdf" };
 
         /// <summary>
         /// the mimetype of a pdf source
@@ -52,7 +66,7 @@ namespace ImageProcessor.Plugins.Pdf
         {
             var bytes = new byte[stream.Length];
             stream.Read(bytes, 0, bytes.Length);
-            var rasterize = new PdfRasterizer();
+            var rasterize = new PdfRasterizer(_desiredXDpi, _desiredYDpi);
             return rasterize.Rasterize(stream);
         }
     }
