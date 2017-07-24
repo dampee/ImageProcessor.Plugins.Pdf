@@ -1,5 +1,4 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Text;
@@ -12,19 +11,21 @@ namespace ImageProcessor.Plugins.Pdf
     /// </summary>
     public class PdfFormat : FormatBase
     {
-        private readonly int _desiredXDpi;
-        private readonly int _desiredYDpi;
+        public PdfFormat()
+        {
+            DesiredDpiX = 96;
+            DesiredDpiY = 96;
+        }
+        
+        /// <summary>
+        /// Desired X DPI for the result document
+        /// </summary>
+        public int DesiredDpiX { get; set; }
 
         /// <summary>
-        /// Constructor
+        /// Desired Y DPI for the result document
         /// </summary>
-        /// <param name="xDpi">Desired X DPI</param>
-        /// <param name="yDpi">DEsired Y DPI</param>
-        public PdfFormat(int xDpi = 96, int yDpi = 96)
-        {
-            _desiredXDpi = xDpi;
-            _desiredYDpi = yDpi;
-        }
+        public int DesiredDpiY { get; set; }
 
         /// <summary>
         /// Every PDF file starts with %PDF
@@ -66,7 +67,7 @@ namespace ImageProcessor.Plugins.Pdf
         {
             var bytes = new byte[stream.Length];
             stream.Read(bytes, 0, bytes.Length);
-            var rasterize = new PdfRasterizer(_desiredXDpi, _desiredYDpi);
+            var rasterize = new PdfRasterizer(DesiredDpiX, DesiredDpiY);
             return rasterize.Rasterize(stream);
         }
     }
