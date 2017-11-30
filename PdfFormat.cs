@@ -1,5 +1,4 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Text;
@@ -12,6 +11,22 @@ namespace ImageProcessor.Plugins.Pdf
     /// </summary>
     public class PdfFormat : FormatBase
     {
+        public PdfFormat()
+        {
+            DesiredDpiX = 96;
+            DesiredDpiY = 96;
+        }
+        
+        /// <summary>
+        /// Desired X DPI for the result document
+        /// </summary>
+        public int DesiredDpiX { get; set; }
+
+        /// <summary>
+        /// Desired Y DPI for the result document
+        /// </summary>
+        public int DesiredDpiY { get; set; }
+
         /// <summary>
         /// Every PDF file starts with %PDF
         /// </summary>
@@ -31,7 +46,7 @@ namespace ImageProcessor.Plugins.Pdf
         /// <summary>
         /// All the extensions which are supported
         /// </summary>
-        public override string[] FileExtensions => new[] {"pdf"};
+        public override string[] FileExtensions => new[] { "pdf" };
 
         /// <summary>
         /// the mimetype of a pdf source
@@ -52,7 +67,7 @@ namespace ImageProcessor.Plugins.Pdf
         {
             var bytes = new byte[stream.Length];
             stream.Read(bytes, 0, bytes.Length);
-            var rasterize = new PdfRasterizer();
+            var rasterize = new PdfRasterizer(DesiredDpiX, DesiredDpiY);
             return rasterize.Rasterize(stream);
         }
     }
