@@ -3,7 +3,7 @@
 This is a plugin for ImageProcessorThis project is a plugin for [ImageProcessor](http://imageprocessor.org/). 
 *It adds PDF as a supported file format*.  This gives you the ability to preview the first page of a PDF file on your web page.
 
-## Installation
+## Installation using Nuget
 
     Install-Package ImageProcessor.Plugins.PDF
 
@@ -17,7 +17,7 @@ I read that Ghostscript does not handle requests from multiple processes.
 When running on a webserver, be sure to run the website in his own applicationpool.
 
 ## Configuration
-Just add /myfile.pdf?format=jpg&width=500 to get the first page.
+Just add `/myfile.pdf?format=jpg&width=500` to get the first page as an image.
 
 ## running locally on IIS express
 If you run locally, and you have the 64 bit version of ghostscript installed, 
