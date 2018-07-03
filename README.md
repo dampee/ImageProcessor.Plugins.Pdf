@@ -8,7 +8,7 @@ This is a plugin for ImageProcessorThis project is a plugin for [ImageProcessor]
     Install-Package ImageProcessor.Plugins.PDF
 
 ## GhostScript
-We use [GhostScript.Net](https://ghostscriptnet.codeplex.com/) as a wrapper for [GhostScript](https://ghostscript.com/).  
+We use [GhostScript.Net](https://github.com/jhabjan/Ghostscript.NET) as a managed wrapper for [GhostScript](https://ghostscript.com/).  
 The good thing is, you don't need to install ghostscript on your machine.
 You can just copy (one or both) `gsdll32.dll` and `gsdll64.dll` in the /bin directory. 
 **These files are not provided in this packages and must be added manually.**
