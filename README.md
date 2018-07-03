@@ -3,6 +3,10 @@
 This is a plugin for ImageProcessorThis project is a plugin for [ImageProcessor](http://imageprocessor.org/). 
 *It adds PDF as a supported file format*.  This gives you the ability to preview the first page of a PDF file on your web page.
 
+## Installation
+
+    Install-Package ImageProcessor.Plugins.PDF
+
 ## GhostScript
 We use [GhostScript.Net](https://ghostscriptnet.codeplex.com/) as a wrapper for [GhostScript](https://ghostscript.com/).  
 The good thing is, you don't need to install ghostscript on your machine.
