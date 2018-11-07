@@ -23,7 +23,7 @@ deploy:
   skip_symbols: false
   artifact: MyApp
 
- dotnet_csproj:
+dotnet_csproj:
   patch: true
   file: '*.csproj'
   version: '{version}'
