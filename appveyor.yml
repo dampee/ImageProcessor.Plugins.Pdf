@@ -6,6 +6,9 @@ version: 1.3.{build}
 cache:
   - src\packages -> **\packages.config  # preserve "packages" directory in the root of build folder but will reset it if packages.config is modified
   
+build:
+  project: ImageProcessor.Plugins.Pdf.csproj
+  
 before_build:
   - nuget restore
 
@@ -19,3 +22,9 @@ deploy:
     secure: UzqUHUkqyq4B5Z8HehvNfvbuE2xTFB5zENiMBltMxT6a4vp0eVXA5bihAM5RQqn+
   skip_symbols: false
   artifact: MyApp
+
+ dotnet_csproj:
+  patch: true
+  file: '*.csproj'
+  version: '{version}'
+  package_version: '{version}'
