@@ -15,7 +15,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Company />
     <RepositoryUrl>https://github.com/dampee/ImageProcessor.Plugins.Pdf</RepositoryUrl>
-    <RepositoryType>GitHub</RepositoryType>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Ghostscript.NET" Version="1.2.1" />
