@@ -1,4 +1,4 @@
-(https://ci.appveyor.com/api/projects/status/x9n4h3b72cxj845t?svg=true)](https://ci.appveyor.com/project/dampee/imageprocessor-plugins-pdf)
+[![Build status](https://ci.appveyor.com/api/projects/status/x9n4h3b72cxj845t?svg=true)](https://ci.appveyor.com/project/dampee/imageprocessor-plugins-pdf)
 
 # Pdf fileformat for ImageProcessor
 
