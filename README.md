@@ -1,4 +1,6 @@
-﻿# Pdf fileformat for ImageProcessor
+(https://ci.appveyor.com/api/projects/status/x9n4h3b72cxj845t?svg=true)](https://ci.appveyor.com/project/dampee/imageprocessor-plugins-pdf)
+
+# Pdf fileformat for ImageProcessor
 
 This is a plugin for ImageProcessorThis project is a plugin for [ImageProcessor](http://imageprocessor.org/). 
 *It adds PDF as a supported file format*.  This gives you the ability to preview the first page of a PDF file on your web page.
