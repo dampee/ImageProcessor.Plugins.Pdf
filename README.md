@@ -1,4 +1,5 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/x9n4h3b72cxj845t?svg=true)](https://ci.appveyor.com/project/dampee/imageprocessor-plugins-pdf)
+[![NuGet release](https://img.shields.io/nuget/v/ImageProcessor.Plugins.Pdf.svg)](https://www.nuget.org/packages/ImageProcessor.Plugins.Pdf/)
 
 # Pdf fileformat for ImageProcessor
 
