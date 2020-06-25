@@ -17,11 +17,15 @@ artifacts:
     name: MyApp
 
 deploy:
-  provider: NuGet
+- provider: NuGet
   api_key:
     secure: hd63fmfN87wpPr16CMeB3I4jj/+mj0oHJxUIaQb7t61spQKNJfwxmfp059BKs6DX
   skip_symbols: false
   artifact: MyApp
+- provider: GitHub
+  artifact: MyApp
+  auth_token:
+    secure: OFvuxAZ0fV+i5iZDD4bfNLyy8H4fWQpJUOyLX2OybtSFtgYYUwm06qADOy950/Ui
 
 dotnet_csproj:
   patch: true
